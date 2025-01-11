@@ -1,15 +1,17 @@
 const express = require("express");
 const router = express.Router();
 
-const { 
-    handleNewCreatedURL,
-    handleAllURLs, 
-    handleURLById 
-    } = require("../controllers/url");
+const {
+  handleGenerateNewShortURL,
+  handleReachToSite,
+  handleGenerateAllUrl
+} = require("../controllers/url");
 
+
+router.post("/", handleGenerateNewShortURL);
 router
-    .post("/", handleNewCreatedURL)
-    .get("/urls", handleAllURLs)
-    .get("/analytics/:id", handleURLById);
+  .get("/urls", handleGenerateAllUrl)
+  .get("/:id", handleReachToSite);
 
 module.exports = router;
+ 

@@ -1,23 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
     </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URL Shortner</title>
-</head>
-<body>
-    <h2>URL Shortner</h2>
-    <form action="/url" method="post">
-        <h4 style="display: inline;"><label for="">Enter URL</label></h4>
-        <input type="text" name="url" placeholder="https:example.com">
-        <button>Submit</button>
-    </form>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+  </head>
+  <body>
+    <h3>URL Shortener</h1>
 
-    <p><h5 style="display: inline-block;">Short URL Id: </h5> <%=locals.Id%></p>
-</body>
+    <% if (locals.id) { %>
+    <p><h3 style="display: inline-block">Short-Id Generated:</h3> <%= id %></p>
+    <% } %>
+
+    <div>
+      <form method="POST" action="/url">
+        <label>Enter Your Original URL</label>
+        <input type="text" name="url" placeholder="https://example.com" />
+        <button type="submit">Generate</button>
+      </form>
+    </div>
+    <br>
+    <h4 style="display: inline">See All URLs</h4>
+    <form action="/url/urls">
+      <button>check</button>
+    </form>
+    <br>
+    <h4 style="display: inline">Use Another Account</h4><br>
+    <form action="/login">
+      <button>login</button>
+    </form>
+  </body>
 </html>
