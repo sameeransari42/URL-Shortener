@@ -1,6 +1,5 @@
 const shortid = require("shortid");
 const URL = require("../models/url");
-const User = require("../models/url");
 
 async function handleGenerateNewShortURL(req, res) {
   const body = req.body;
@@ -20,7 +19,7 @@ async function handleGenerateNewShortURL(req, res) {
 }
 
 async function handleGenerateAllUrl(req, res) {
-  const urls = await User.find({createdBy: req.user._id});
+  const urls = await URL.find({createdBy: req.user._id});
   return res.render("allurls", {urls, name: req.user.name});
 }
 
